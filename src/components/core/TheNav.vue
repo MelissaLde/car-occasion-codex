@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-yellow-200 md:fixed bottom-0">
+  <nav class="bg-paper md:fixed bottom-0">
     <article>
       <section>
         <div v-for="brand in brandListFilters" :key="brand.id">

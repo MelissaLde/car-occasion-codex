@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-blue-400 p-10">
+  <main class="bg-background p-10">
     <v-car-card
       v-for="car in carList"
       :key="car.id"
@@ -12,6 +12,7 @@
 
 <script>
 import VCarCard from '@/components/commons/VCarCard'
+import '@/assets/global.css'
 
 export default {
   name: 'TheMain',

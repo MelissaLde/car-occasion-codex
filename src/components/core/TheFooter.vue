@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-red-500">Copyright Melissa Linde</footer>
+  <footer class="bg-primary">Copyright Melissa Linde</footer>
 </template>
 
 <script>

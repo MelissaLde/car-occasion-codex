@@ -1,5 +1,5 @@
 <template>
-  <article class="bg-green-500 my-5">
+  <article class="bg-paper my-5">
     <h3>{{ brand }}</h3>
     <h4>{{ model }}</h4>
     <img :src="image" :alt="model" />
