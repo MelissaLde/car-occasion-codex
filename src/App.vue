@@ -1,7 +1,5 @@
 <template>
   <div id="App">
-    <the-header />
-
     <the-nav :brand-list-filters="brandListFilters" />
 
     <the-main :car-list="carList" />
@@ -11,7 +9,6 @@
 </template>
 
 <script>
-import TheHeader from '@/components/core/TheHeader'
 import TheNav from '@/components/core/TheNav'
 import TheFooter from '@/components/core/TheFooter'
 import TheMain from '@/components/core/TheMain'
@@ -19,7 +16,7 @@ import TheMain from '@/components/core/TheMain'
 export default {
   name: 'App',
 
-  components: { TheHeader, TheNav, TheFooter, TheMain },
+  components: { TheNav, TheFooter, TheMain },
 
   data: () => ({
     carList: [
@@ -167,31 +164,3 @@ export default {
   }),
 }
 </script>
-
-<style lang="scss">
-nav {
-  height: calc(100vh - 54px);
-  margin-top: 54px;
-}
-
-header {
-  height: 54px;
-}
-
-@screen md {
-  nav {
-    width: 400px;
-  }
-
-  main {
-    margin-left: 400px;
-    margin-top: 54px;
-    min-height: calc(100vh - 108px);
-  }
-
-  footer {
-    margin-left: 400px;
-    height: 54px;
-  }
-}
-</style>

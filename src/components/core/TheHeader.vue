@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-black fixed w-full top-0">
-    <div class="container mx-auto py-1">
+  <header class="mb-10">
+    <div>
       <img src="@/assets/images/loogsvg.png" width="150px" alt="Logo" />
     </div>
   </header>
@@ -11,5 +11,3 @@ export default {
   name: 'TheHeader',
 }
 </script>
-
-<style scoped></style>
