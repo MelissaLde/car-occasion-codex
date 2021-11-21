@@ -1,104 +1,99 @@
 <template>
-  <nav class="bg-paper md:fixed bottom-0 text-black">
+  <nav
+    class="bg-paper md:fixed bottom-0 text-black rounded-br-3xl rounded-tr-3xl"
+  >
     <the-header />
 
-    <article>
-      <section>
-        <FormulateInput
-          v-model="selectedBrand"
-          :options="brandList"
-          type="select"
-          placeholder="Select brand"
-          label="Brand"
-        />
+    <article class="grid gap-y-3 px-7">
+      <section class="grid grid-cols-12 gap-x-5 gap-y-2">
+        <div class="col-span-12">
+          <h4>Cars</h4>
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput
+            v-model="selectedBrand"
+            :options="brandList"
+            type="select"
+            placeholder="Select brand"
+            label="Brand"
+          />
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput
+            v-model="selectedModels"
+            :options="modelsList"
+            type="select"
+            placeholder="Select models"
+            label="Models"
+          />
+        </div>
       </section>
 
-      <section>
-        <FormulateInput
-          v-model="selectedModels"
-          :options="modelsList"
-          type="select"
-          placeholder="Select models"
-          label="Models"
-        />
+      <section class="grid grid-cols-12 gap-x-5 gap-y-2">
+        <div class="col-span-12">
+          <h4>Prices</h4>
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput v-model="pricesMin" type="number" label="Minimum" />
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput v-model="pricesMax" type="number" label="Maximum" />
+        </div>
       </section>
 
-      <section>
-        <FormulateInput
-          v-model="pricesMin"
-          type="number"
-          label="Prices minimum"
-        />
+      <section class="grid grid-cols-12 gap-x-5 gap-y-2">
+        <div class="col-span-12">
+          <h4>Selected fuel</h4>
+        </div>
 
-        <FormulateInput
-          v-model="pricesMax"
-          type="number"
-          label="Prices maximum"
-        />
+        <div class="col-span-12 mt-2">
+          <FormulateInput
+            v-model="selectedFuel"
+            :options="fuelList"
+            type="radio"
+          />
+        </div>
       </section>
 
-      <section>
-        <FormulateInput
-          v-model="selectedFuel"
-          :options="fuelList"
-          type="radio"
-          label="Selected fuel:"
-        />
+      <section class="grid grid-cols-12 gap-x-5 gap-y-2">
+        <div class="col-span-12">
+          <h4>Years</h4>
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput v-model="yearsMin" type="number" label="Minimum" />
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput v-model="yearsMax" type="number" label="Maximum" />
+        </div>
       </section>
 
-      <section>
-        <FormulateInput
-          v-model="yearsMin"
-          type="number"
-          label="Years minimum"
-        />
+      <section class="grid grid-cols-12 gap-x-5 gap-y-2">
+        <div class="col-span-12">
+          <h4>Kilometers</h4>
+        </div>
 
-        <FormulateInput
-          v-model="yearsMax"
-          type="number"
-          label="Years maximum"
-        />
+        <div class="col-span-6">
+          <FormulateInput
+            v-model="kilometersMin"
+            type="number"
+            label="Minimum"
+          />
+        </div>
+
+        <div class="col-span-6">
+          <FormulateInput
+            v-model="kilometersMax"
+            type="number"
+            label="Maximum"
+          />
+        </div>
       </section>
-
-      <section>
-        <FormulateInput
-          v-model="milesMin"
-          type="number"
-          label="Miles minimum"
-        />
-
-        <FormulateInput
-          v-model="milesMax"
-          type="number"
-          label="Miles maximum"
-        />
-      </section>
-
-      <!--
-      <section>
-        <select name="brands">
-          <option value="">Citroen</option>
-          <option value="">Peugeot</option>
-          <option value="">Renault</option>
-          <option value="">Ford</option>
-          <option value="">Nissan</option>
-          <option value="">Suzuki</option>
-          <option value="">Hyundai</option>
-        </select>
-      </section>
-
-      <section>
-        <select name="models">
-          <option value="">Citroen</option>
-          <option value="">Peugeot</option>
-          <option value="">Renault</option>
-          <option value="">Ford</option>
-          <option value="">Nissan</option>
-          <option value="">Suzuki</option>
-          <option value="">Hyundai</option>
-        </select>
-      </section>
-      -->
     </article>
   </nav>
 </template>
@@ -156,18 +151,19 @@ export default {
       hybride: 'Hybride',
       electrique: 'Electrique',
     },
+
     yearsMin: 0,
 
     yearsMax: 2021,
 
-    milesMin: 0,
+    kilometersMin: 0,
 
-    milesMax: 100000,
+    kilometersMax: 100000,
   }),
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 nav {
   height: 100vh;
 }

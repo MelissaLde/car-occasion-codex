@@ -1,8 +1,10 @@
 <template>
-  <header class="mb-10">
-    <div>
-      <img src="@/assets/images/loogsvg.png" width="150px" alt="Logo" />
-    </div>
+  <header class="flex justify-center">
+    <img
+      src="@/assets/images/car-occasion-codex-logo.png"
+      width="130"
+      alt="Logo"
+    />
   </header>
 </template>
 
