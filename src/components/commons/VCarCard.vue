@@ -53,12 +53,12 @@ export default {
       const values = Object.values(this.infosList)
 
       const translations = {
-        brand: 'Marques',
-        models: 'Modèles',
-        prices: 'Prix',
-        energy: 'Energie',
-        years: 'Années',
-        kilometer: 'Kilomètres',
+        brand: 'Brand',
+        models: 'Models',
+        prices: 'Prices',
+        energy: 'Energy',
+        years: 'Years',
+        kilometer: 'Kilometers',
       }
 
       return keys.map((key, index) => ({

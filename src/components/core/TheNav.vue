@@ -17,6 +17,7 @@
             type="select"
             placeholder="Select brand"
             label="Brand"
+            @input="handleFilterChange"
           />
         </div>
 
@@ -27,6 +28,7 @@
             type="select"
             placeholder="Select models"
             label="Models"
+            @input="handleFilterChange"
           />
         </div>
       </section>
@@ -37,24 +39,35 @@
         </div>
 
         <div class="col-span-6">
-          <FormulateInput v-model="pricesMin" type="number" label="Minimum" />
+          <FormulateInput
+            v-model="pricesMin"
+            type="number"
+            label="Minimum"
+            @input="handleFilterChange"
+          />
         </div>
 
         <div class="col-span-6">
-          <FormulateInput v-model="pricesMax" type="number" label="Maximum" />
+          <FormulateInput
+            v-model="pricesMax"
+            type="number"
+            label="Maximum"
+            @input="handleFilterChange"
+          />
         </div>
       </section>
 
       <section class="grid grid-cols-12 gap-x-5 gap-y-2">
         <div class="col-span-12">
-          <h4>Selected fuel</h4>
+          <h4>Selected energy</h4>
         </div>
 
         <div class="col-span-12 mt-2">
           <FormulateInput
-            v-model="selectedFuel"
-            :options="fuelList"
+            v-model="selectedEnergy"
+            :options="energyList"
             type="radio"
+            @input="handleFilterChange"
           />
         </div>
       </section>
@@ -65,11 +78,21 @@
         </div>
 
         <div class="col-span-6">
-          <FormulateInput v-model="yearsMin" type="number" label="Minimum" />
+          <FormulateInput
+            v-model="yearsMin"
+            type="number"
+            label="From"
+            @input="handleFilterChange"
+          />
         </div>
 
         <div class="col-span-6">
-          <FormulateInput v-model="yearsMax" type="number" label="Maximum" />
+          <FormulateInput
+            v-model="yearsMax"
+            type="number"
+            label="To"
+            @input="handleFilterChange"
+          />
         </div>
       </section>
 
@@ -83,6 +106,7 @@
             v-model="kilometersMin"
             type="number"
             label="Minimum"
+            @input="handleFilterChange"
           />
         </div>
 
@@ -91,6 +115,7 @@
             v-model="kilometersMax"
             type="number"
             label="Maximum"
+            @input="handleFilterChange"
           />
         </div>
       </section>
@@ -114,7 +139,7 @@ export default {
   },
 
   data: () => ({
-    selectedBrand: 'Suzuki',
+    selectedBrand: '',
 
     brandList: {
       suzuki: 'Suzuki',
@@ -127,7 +152,7 @@ export default {
       volkswagen: 'Volkswagen',
     },
 
-    selectedModels: 'Vitara',
+    selectedModels: '',
 
     modelsList: {
       vitara: 'Vitara',
@@ -139,20 +164,20 @@ export default {
       corsa: 'Corsa',
     },
 
-    pricesMin: 0,
+    pricesMin: 1000,
 
-    pricesMax: 100000,
+    pricesMax: 50000,
 
-    selectedFuel: '',
+    selectedEnergy: '',
 
-    fuelList: {
-      essence: 'Essence',
+    energyList: {
+      gasoline: 'Gasoline',
       diesel: 'Diesel',
-      hybride: 'Hybride',
-      electrique: 'Electrique',
+      hybrid: 'Hybrid',
+      electric: 'Electric',
     },
 
-    yearsMin: 0,
+    yearsMin: 2000,
 
     yearsMax: 2021,
 
@@ -160,6 +185,23 @@ export default {
 
     kilometersMax: 100000,
   }),
+
+  methods: {
+    handleFilterChange() {
+      const userFilters = {
+        selectedBrand: this.selectedBrand,
+        selectedModels: this.selectedModels,
+        pricesMin: this.pricesMin,
+        pricesMax: this.pricesMax,
+        selectedEnergy: this.selectedEnergy,
+        yearsMin: this.yearsMin,
+        yearsMax: this.yearsMax,
+        kilometersMin: this.kilometersMin,
+        kilometersMax: this.kilometersMax,
+      }
+      this.$emit('filter-change', userFilters)
+    },
+  },
 }
 </script>
 
