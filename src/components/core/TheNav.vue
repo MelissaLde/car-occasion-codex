@@ -35,12 +35,12 @@
 
       <section class="grid grid-cols-12 gap-x-5 gap-y-2">
         <div class="col-span-12">
-          <h4>Prices</h4>
+          <h4>Price</h4>
         </div>
 
         <div class="col-span-6">
           <FormulateInput
-            v-model="pricesMin"
+            v-model="priceMin"
             type="number"
             label="Minimum"
             @input="handleFilterChange"
@@ -49,7 +49,7 @@
 
         <div class="col-span-6">
           <FormulateInput
-            v-model="pricesMax"
+            v-model="priceMax"
             type="number"
             label="Maximum"
             @input="handleFilterChange"
@@ -162,11 +162,12 @@ export default {
       capture: 'Capture',
       astra: 'Astra',
       corsa: 'Corsa',
+      c4: 'C4',
     },
 
-    pricesMin: 1000,
+    priceMin: 1000,
 
-    pricesMax: 50000,
+    priceMax: 50000,
 
     selectedEnergy: '',
 
@@ -191,8 +192,8 @@ export default {
       const userFilters = {
         selectedBrand: this.selectedBrand,
         selectedModels: this.selectedModels,
-        pricesMin: this.pricesMin,
-        pricesMax: this.pricesMax,
+        priceMin: this.priceMin,
+        priceMax: this.priceMax,
         selectedEnergy: this.selectedEnergy,
         yearsMin: this.yearsMin,
         yearsMax: this.yearsMax,

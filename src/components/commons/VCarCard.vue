@@ -55,7 +55,7 @@ export default {
       const translations = {
         brand: 'Brand',
         models: 'Models',
-        prices: 'Prices',
+        price: 'Price',
         energy: 'Energy',
         years: 'Years',
         kilometer: 'Kilometers',

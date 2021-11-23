@@ -2,7 +2,7 @@
   <div id="App">
     <the-nav
       :brand-list-filters="brandListFilters"
-      @filter-change="carFilters"
+      @filter-change="carFilter, carPriceFilter"
     />
 
     <the-main :car-list="carList" />
@@ -27,7 +27,7 @@ export default {
         id: 1,
         infosList: {
           brand: 'Suzuki',
-          prices: 14000,
+          price: 14000,
           models: 'Swift',
           energy: 'Gasoline',
           years: '2019',
@@ -40,7 +40,7 @@ export default {
         id: 2,
         infosList: {
           brand: 'Citroen',
-          prices: 14000,
+          price: 14000,
           models: 'c3',
           energy: 'Gasoline',
           years: '2019',
@@ -53,7 +53,7 @@ export default {
         id: 3,
         infosList: {
           brand: 'Ford',
-          prices: 14000,
+          price: 14000,
           models: 'KA',
           energy: 'Gasoline',
           years: '2019',
@@ -66,7 +66,7 @@ export default {
         id: 1,
         infosList: {
           brand: 'Peugeot',
-          prices: 14000,
+          price: 14000,
           models: '207',
           energy: 'Gasoline',
           years: '2019',
@@ -79,7 +79,7 @@ export default {
         id: 2,
         infosList: {
           brand: 'Renault',
-          prices: 14000,
+          price: 14000,
           models: 'clio',
           energy: 'Gasoline',
           years: '2019',
@@ -92,7 +92,7 @@ export default {
         id: 3,
         infosList: {
           brand: 'Suzuki',
-          prices: 14000,
+          price: 14000,
           models: 'Swift',
           energy: 'Gasoline',
           years: '2019',
@@ -105,7 +105,7 @@ export default {
         id: 1,
         infosList: {
           brand: 'Suzuki',
-          prices: 14000,
+          price: 14000,
           models: 'Swift',
           energy: 'Gasoline',
           years: '2019',
@@ -118,7 +118,7 @@ export default {
         id: 2,
         infosList: {
           brand: 'Suzuki',
-          prices: 14000,
+          price: 14000,
           models: 'Swift',
           energy: 'Gasoline',
           years: '2019',
@@ -131,7 +131,7 @@ export default {
         id: 3,
         infosList: {
           brand: 'Suzuki',
-          prices: 14000,
+          price: 14000,
           models: 'Swift',
           energy: 'Gasoline',
           years: '2019',
@@ -166,20 +166,40 @@ export default {
     ],
 
     filterCarList: [],
+    filterPriceList: [],
   }),
 
   created() {
-    this.filterCarList = this.carlist
+    this.filterCarList = this.carList
+    this.filterPriceList = this.carList
   },
 
   methods: {
-    carFilters(userFilters) {
-      this.filterCarList = this.carList.filter(
+    carFilter(userFilters) {
+      this.filterCarList = this.carList.filter((car) => {
+        if (!userFilters.selectedModels)
+          return (
+            car.infosList.brand.toLowerCase() ===
+            userFilters.selectedBrand.toLowerCase()
+          )
+        else {
+          return (
+            car.infosList.brand.toLowerCase() ===
+              userFilters.selectedBrand.toLowerCase() &&
+            car.infosList.models.toLowerCase() ===
+              userFilters.selectedModels.toLowerCase()
+          )
+        }
+      })
+    },
+
+    carPriceFilter(userFilters) {
+      this.filterPriceList = this.carList.filter(
         (car) =>
-          car.infosList.brand.toLowerCase() ===
-            userFilters.selectedBrand.toLowerCase() &&
-          car.infosList.models.toLowerCase() ===
-            car.selectedModels.toLowerCase()
+          car.infosList.price.toLowerCase() >=
+            userFilters.priceMin.toLowerCase() &&
+          car.infosList.price.toLowerCase() <=
+            userFilters.priceMax.toLowerCase()
       )
     },
   },
