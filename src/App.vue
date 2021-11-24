@@ -238,16 +238,15 @@ export default {
       const randomBrand =
         energyList[Math.floor(Math.random() * energyList.length)]
 
+      const test =
+        modelList[randomBrand][
+          Math.floor(Math.random() * modelList[randomBrand].length)
+        ]
+
       return {
         brand: randomBrand,
-        model:
-          modelList[randomBrand][
-            Math.floor(Math.random() * modelList[randomBrand].length)
-          ].modelName,
-        image:
-          modelList[randomBrand][
-            Math.floor(Math.random() * modelList[randomBrand].length)
-          ].image,
+        model: test.modelName,
+        image: test.image,
       }
     },
 
