@@ -54,10 +54,10 @@ export default {
 
       const translations = {
         brand: 'Brand',
-        models: 'Models',
+        model: 'Models',
         price: 'Price',
         energy: 'Energy',
-        years: 'Years',
+        year: 'Years',
         kilometer: 'Kilometers',
       }
 
